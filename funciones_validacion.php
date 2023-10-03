@@ -5,9 +5,9 @@
         $datosErroneos = array();
 
         // Validación de texto.
-        (!isset($_REQUEST['name'])           || empty($_REQUEST['name']))           ? $datosErroneos[] = "El campo nombre contiene un error"                 : null;
-        (!isset($_REQUEST['password'])       || empty($_REQUEST['password']))       ? $datosErroneos[] = "El campo contraseña contiene un error"             : null;
-        (!isset($_REQUEST['repeatPassword']) || empty($_REQUEST['repeatPassword'])) ? $datosErroneos[] = "El campo confirmé su contraseña contiene un error" : null;
+        (!isset($_REQUEST['name'])           || empty($_REQUEST['name']))           ? $datosErroneos[] = "El campo nombre contiene un error ❌"                 : null;
+        (!isset($_REQUEST['password'])       || empty($_REQUEST['password']))       ? $datosErroneos[] = "El campo contraseña contiene un error ❌"             : null;
+        (!isset($_REQUEST['repeatPassword']) || empty($_REQUEST['repeatPassword'])) ? $datosErroneos[] = "El campo confirmé su contraseña contiene un error ❌" : null;
 
         // Validación de checkbox.
         foreach ($_REQUEST['job'] as $datos)
@@ -21,12 +21,12 @@
                 $datos !== 'Data Science'       
             )
             {
-                $datosErroneos[] = "Debe seleccionar al menos un puesto de trabajo de interés";
+                $datosErroneos[] = "Debe seleccionar al menos un puesto de trabajo de interés ❌";
             }
         }
 
         // Validación de selección de opción.
-        ($_REQUEST['incorporation'] !== 'Inmediata' && $_REQUEST['incorporation'] !== '15 días') ? $datosErroneos[] = "Debe seleccionar una fecha de incorporación" : null;
+        ($_REQUEST['incorporation'] !== 'Inmediata' && $_REQUEST['incorporation'] !== '15 días') ? $datosErroneos[] = "Debe seleccionar una fecha de incorporación ❌" : null;
 
         /**
          *  - 1. Después de validar los campos, comprobamos si el array no está vacío para imprimir los campos que fueron erróneos.
@@ -48,6 +48,7 @@
             }
 
             // ATENCIÓN: Imprimir un mensaje con echo y luego redireccionar con PHP dispara error por el buffer, así que se redireccionó con JS.
+            // Si PHP ya ha enviado algún contenido al navegador antes de intentar cambiar los encabezados con header(), se genera el error "Cannot modify header information - headers already sent."
             // header("Location: archivo2.php");
             // exit;
             
@@ -59,6 +60,7 @@
                 <script>
                     setTimeout(function() 
                     {
+                        alert("Vuelva a rellenar el formulario.");
                         window.location.href = "formulario_cristo.php";
                     }, 2000);
                 </script>
