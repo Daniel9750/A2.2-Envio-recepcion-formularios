@@ -97,4 +97,89 @@
             echo '<b>Fecha de incorporación:</b> ' . $_REQUEST['incorporation'];
         }
     }
+
+
+
+    function validate_form_daniel()
+    {
+        $datosErroneos = array();
+
+        (!isset($_REQUEST['name'])           || empty($_REQUEST['name']))           ? $datosErroneos[] = "Error en el nombre ❌"             : null;
+        (!isset($_REQUEST['email'])          || empty($_REQUEST['email']))          ? $datosErroneos[] = "Error en el correo electrónico ❌" : null;
+        (!isset($_REQUEST['dni'])            || empty($_REQUEST['dni']))            ? $datosErroneos[] = "Error en el DNI ❌"                : null;
+
+        foreach ($_REQUEST['device'] as $dispositivo)
+        {
+            if
+            (
+                $dispositivo !== 'Teléfono móvil (Android)'              && 
+                $dispositivo !== 'Teléfono móvil (iOS)'                  &&
+                $dispositivo !== 'Ordenador Portátil'                    && 
+                $dispositivo !== 'Ordenador de sobremesa'    
+            )
+            {
+                $datosErroneos[] = "Por favor, seleccione al menos un dispositivo ❌";
+            }
+        }
+
+        ($_REQUEST['genero_elegir'] !== 'Hombre' && $_REQUEST['genero_elegir'] !== 'Mujer' 
+        && $_REQUEST['genero_elegir'] !== 'Otro' && $_REQUEST['genero_elegir'] !== 'No especificado') 
+        ? $datosErroneos[] = "Por favor, elija una opción ❌" : null;
+
+        if (!empty($datosErroneos)) 
+        {
+            echo '<div id="mensajes">';
+            
+            foreach ($datosErroneos as $value) 
+            {
+                echo "$value <br/>";
+
+                ob_flush();
+                flush();
+                sleep(2);
+            }
+            
+            echo '</div>';
+            
+            echo 
+            '
+                <script>
+                    setTimeout(function() 
+                    {
+                        alert("Vuelva a rellenar el formulario.");
+                        window.location.href = "formulario_daniel.php";
+                    }, 2000);
+                </script>
+            ';
+            
+            exit;
+        }
+
+        else {
+            echo 
+                'El formulario está correcto ✅'
+                .
+                '<br/><br/> <b>Nombre:</b> '               
+                . 
+                $_REQUEST['name']              
+                .
+                '<br/> <b>Correo electrónico:</b> '          
+                .
+                $_REQUEST['email']          
+                .
+                '<br/> <b>DNI:</b> '          
+                .
+                $_REQUEST['dni']    
+                .
+                '<br/>'                        
+                ;
+
+            foreach ($_REQUEST['device'] as $value) 
+            {
+                echo '<b>Dispositivo:</b> ' . $value . '<br/>';
+            }
+
+            echo '<b>Género:</b> ' . $_REQUEST['genero_elegir'];
+        }
+    }
 ?>

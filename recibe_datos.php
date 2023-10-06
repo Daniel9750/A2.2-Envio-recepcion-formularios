@@ -7,4 +7,8 @@
    {
         validate_form_cristo();
    }
+   if ($_REQUEST['postId'] === "Daniel") 
+   {
+        validate_form_daniel();
+   }
 ?>
