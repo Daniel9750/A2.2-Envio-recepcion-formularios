@@ -2,7 +2,8 @@
 
     $valores_defecto = array (
         "name" => "Daniel Sánchez González",
-        "email" => "danielsanchezgonzalez@alumno.ieselrincon.es"
+        "email" => "danielsanchezgonzalez@alumno.ieselrincon.es",
+        "dni" => "12345678A"
     );
 
 ?>
@@ -73,7 +74,7 @@
             <br/>
             <div>
                 <label for="dni">DNI:</label>
-                <input type="text" id="dni" name="dni" value="12345678A">
+                <input type="text" id="dni" name="dni" value="<?php echo $valores_defecto["dni"] ?>">
             </div>
             <br/>
 
