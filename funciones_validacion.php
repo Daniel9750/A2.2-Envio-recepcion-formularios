@@ -9,6 +9,7 @@
         (!isset($_REQUEST['password'])       || empty($_REQUEST['password']))       ? $datosErroneos[] = "El campo contraseña contiene un error ❌"             : null;
         (!isset($_REQUEST['repeatPassword']) || empty($_REQUEST['repeatPassword'])) ? $datosErroneos[] = "El campo confirmé su contraseña contiene un error ❌" : null;
 
+
         // Validación de checkbox.
         foreach ($_REQUEST['job'] as $datos)
         {

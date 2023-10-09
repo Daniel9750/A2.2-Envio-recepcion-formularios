@@ -1,3 +1,12 @@
+<?php
+
+    $valores_defecto = array (
+        "name" => "Daniel Sánchez González",
+        "email" => "danielsanchezgonzalez@alumno.ieselrincon.es"
+    );
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,12 +63,12 @@
         <form action="./recibe_datos.php" method="post">
             <div>
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" value="Daniel Sánchez González">
+                <input type="text" id="name" name="name" value="<?php echo $valores_defecto["name"] ?>">
             </div>
             <br/>
             <div>
                 <label for="email">Correo electrónico:</label>
-                <input type="text" id="email" name="email" value="danielsanchezgonzalez@alumno.ieselrincon.es">
+                <input type="text" id="email" name="email" value="<?php echo $valores_defecto["email"] ?>">
             </div>
             <br/>
             <div>

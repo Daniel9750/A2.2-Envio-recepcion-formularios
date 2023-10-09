@@ -1,3 +1,12 @@
+<?php
+
+    $valores_defecto = array (
+        "name" => "Cristo Rubén Pérez Suárez",
+        "password" => "1234"
+    );
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +57,7 @@
             font-weight: normal !important;
         }
     </style>
+
 </head>
 <body>
     <!-- Contenedor del formulario -->
@@ -60,12 +70,12 @@
             <!-- Input de texto -->
             <div>
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" value="Cristo Rubén Pérez Suárez">
+                <input type="text" id="name" name="name" value="<?php echo $valores_defecto["name"] ?>">
             </div>
             <br/>
             <div>
                 <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" value="1234">
+                <input type="password" id="password" name="password" value="<?php echo $valores_defecto["password"] ?>">
             </div>
             <br/>
             <div>
