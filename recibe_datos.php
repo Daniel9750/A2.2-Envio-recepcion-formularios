@@ -15,6 +15,6 @@
 
    if ($_REQUEST['postId'] === "Manuel")
    {
-        validate_form_daniel();
+        validate_form_manuel();
    }
 ?>

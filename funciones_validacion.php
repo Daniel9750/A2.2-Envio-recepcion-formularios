@@ -129,16 +129,7 @@
             
             echo '</div>';
             
-            echo 
-            '
-                <script>
-                    setTimeout(function() 
-                    {
-                        alert("Vuelva a rellenar el formulario.");
-                        window.location.href = "formulario_daniel.php";
-                    }, 2000);
-                </script>
-            ';
+            echo '<a href="./formulario_manuel.php"';
             
             exit;
         }
@@ -174,118 +165,55 @@
     // Función que comprueba los datos enviados al controlador - MANUEL -.
     function validate_form_manuel()
     {
-        $datosErroneos = array();
-
-        // Validación de texto.
-        (!isset($_REQUEST['name'])           || empty($_REQUEST['name']))           ? $datosErroneos[] = "El campo nombre contiene un error ❌"                 : null;
-        (!isset($_REQUEST['password'])       || empty($_REQUEST['password']))       ? $datosErroneos[] = "El campo contraseña contiene un error ❌"             : null;
-        (!isset($_REQUEST['repeatPassword']) || empty($_REQUEST['repeatPassword'])) ? $datosErroneos[] = "El campo confirme su contraseña contiene un error ❌" : null;
-
-        // Validación de contraseña.
-        ($_REQUEST['password'] !== $_REQUEST['repeatPassword']) ? $datosErroneos[] = "Los campos de contraseña no coinciden ❌" : null;
-        
-        // Validación de checkbox.
-        foreach ($_REQUEST['transp'] as $datosT)
-        {
-            if
-            (
-                $datosT !== 'Aéreo'          && 
-                $datosT !== 'Marítimo'       &&
-                $datosT !== 'Terrestre'       
-            )
-            {
-                $datosErroneos[] = "Debe seleccionar al menos un tipo de transporte ❌";
-            }
+        $errors = array();
+    
+        if (!isset($_REQUEST['name']) || empty($_REQUEST['name'])) {
+            $errors[] = "Error en el campo nombre ❌";
         }
-
-        // Validación de radio buttons.
-        foreach ($_REQUEST['spare'] as $datosS)
-        {
-            if
-            (
-                $datosS !== 'Rotables'          && 
-                $datosS !== 'Consumibles'       &&
-                $datosS !== 'Utilería'       
-            )
-            {
-                $datosErroneos[] = "Debe seleccionar al menos un tipo de repuesto ❌";
-            }
+    
+        if (!isset($_REQUEST['password']) || empty($_REQUEST['password'])) {
+            $errors[] = "Error en el campo contraseña ❌";
         }
-
-        // Validación de selección de opción.
-        ($_REQUEST['entrega'] !== 'Origen' && $_REQUEST['entrega'] !== 'Destino') ? $datosErroneos[] = "Debe seleccionar dónde realizar la entrega ❌" : null;
-
-        /**
-         *  - 1. Después de validar los campos, comprobamos si el array no está vacío para imprimir los campos que fueron erróneos.
-         *  - 2. Después redireccionamos para que vuelva a cumplimentar los datos de manera correcta.
-         */
-        if (!empty($datosErroneos)) 
-        {
+    
+        if (!isset($_REQUEST['repeatPassword']) || empty($_REQUEST['repeatPassword'])) {
+            $errors[] = "Error en el campo repita su contraseña ❌";
+        }
+    
+        if (!isset($_REQUEST['transp']) || empty($_REQUEST['transp'])) {
+            $errors[] = "Error en el tipo de transporte ❌";
+        }
+    
+        if (!isset($_REQUEST['spare']) || empty($_REQUEST['spare'])) {
+            $errors[] = "Error en el tipo de repuesto ❌";
+        }
+    
+        if ($_REQUEST['entrega'] !== 'Origen' && $_REQUEST['entrega'] !== 'Destino') {
+            $errors[] = "Error en la elección de entrega ❌";
+        }
+    
+        if (!empty($errors)) {
             echo '<div id="mensajes">';
-            
-            foreach ($datosErroneos as $value) 
-            {
+    
+            foreach ($errors as $value) {
                 echo "$value <br/>";
-
-                // Antes de volver a imprimir el siguiente campo erróneo espera 2 segundos.
-                // Hay que limpiar el buffer para que el código no dispare errores internos de PHP.
-                ob_flush();
-                flush();
-                sleep(2);
             }
-
-            // ATENCIÓN: Imprimir un mensaje con echo y luego redireccionar con PHP dispara error por el buffer, así que se redireccionó con JS.
-            // Si PHP ya ha enviado algún contenido al navegador antes de intentar cambiar los encabezados con header(), se genera el error "Cannot modify header information - headers already sent."
-            // header("Location: archivo2.php");
-            // exit;
-            
+    
             echo '</div>';
-            
-            // Redireccionar 2 segundos después de mostrar todos los mensajes utilizando JavaScript.
-            echo 
-            '
-                <script>
-                    setTimeout(function() 
-                    {
-                        alert("Vuelva a rellenar el formulario.");
-                        window.location.href = "formulario_manuel.php";
-                    }, 2000);
-                </script>
-            ';
-            
+    
+            echo '<br/><a href="./formulario_manuel.php">Rellena el formulario otra vez</a>';
+    
             exit;
-        }
-
-        // Si el formulario está correcto, imprimimos un mensaje indicándolo y mostrando los datos.
-        else {
-            echo 
-                'El formulario está correcto ✅'
-                .
-                '<br/><br/> <b>Nombre:</b> '               
-                . 
-                $_REQUEST['name']              
-                .
-                '<br/> <b>Contraseña1:</b> '          
-                .
-                $_REQUEST['password']          
-                .
-                '<br/> <b>Contraseña2:</b> '          
-                .
-                $_REQUEST['repeatPassword']    
-                .
-                '<br/>'                        
-                ;
-
-            foreach ($_REQUEST['transp'] as $value) 
-            {
+        } else {
+            echo 'formulario correcto.' . '<br/><br/> <b>Nombre:</b> ' . $_REQUEST['name'] . '<br/> <b>Contraseña1:</b> ' . $_REQUEST['password'] . '<br/> <b>Contraseña2:</b> ' . $_REQUEST['repeatPassword'] . '<br/>';
+    
+            foreach ($_REQUEST['transp'] as $value) {
                 echo '<b>Tipo Transporte:</b> ' . $value . '<br/>';
             }
-
-            foreach ($_REQUEST['spare'] as $value) 
-            {
+    
+            foreach ($_REQUEST['spare'] as $value) {
                 echo '<b>Tipo Repuesto:</b> ' . $value . '<br/>';
             }
-
+    
             echo '<b>Lugar de Entrega:</b> ' . $_REQUEST['entrega'];
         }
     }

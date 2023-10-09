@@ -155,17 +155,17 @@
                 <legend><b>Selecciona el tipo de repuesto:</b></legend>
                 <br/>
                 <div>
-                    <input type="radio" id="rotables" value="<?php echo $valores_defecto['radioRotables'] ?>" name="spare[]" checked />
+                    <input type="radio" id="rotables" value="<?php echo $valores_defecto['radioRotables'] ?>" name="spare" checked />
                     <label for="rotables" class="radio">Rotables</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="radio" id="consumibles" value="<?php echo $valores_defecto['radioConsumibles'] ?>" name="spare[]" />
+                    <input type="radio" id="consumibles" value="<?php echo $valores_defecto['radioConsumibles'] ?>" name="spare" />
                     <label for="consumibles" class="radio">Consumibles</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="radio" id="utileria" value="<?php echo $valores_defecto['radioUtileria'] ?>" name="spare[]" />
+                    <input type="radio" id="utileria" value="<?php echo $valores_defecto['radioUtileria'] ?>" name="spare" />
                     <label for="utileria" class="radio">Utilería</label>
                 </div>
                 <br/>
