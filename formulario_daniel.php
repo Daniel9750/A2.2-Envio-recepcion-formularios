@@ -1,13 +1,18 @@
 <?php
-
     $valores_defecto = array (
-        "name" => "Daniel Sánchez González",
-        "email" => "danielsanchezgonzalez@alumno.ieselrincon.es",
-        "dni" => "12345678A"
+        "name"        => "Daniel Sánchez González",
+        "email"       => "daniel.sánchez@ieselricon.com",
+        "dni"         => "12345678H",
+        "android"     => "Teléfono móvil (Android)",
+        "ios"         => "Teléfono móvil (iOS)",
+        "portatil"    => "Ordenador Portátil",
+        "sobremesa"   => "Ordenador de sobremesa",
+        "hombre"      => "Hombre",
+        "mujer"       => "Mujer",
+        "otro"        => "Otro",
+        "especificar" => "Prefiero no decirlo                    ",
     );
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,22 +86,22 @@
                 <h4 text-align: center>Selecciona los dispositivos que posees:</h4>
                 <br/>
                 <div>
-                    <input type="checkbox" id="android" value="Teléfono móvil (Android)" name="device[]" checked />
+                    <input type="checkbox" id="android" value="<?php echo $valores_defecto["android"] ?>" name="device[]" checked />
                     <label for="android" class="checkbox">Teléfono móvil (Android)</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="ios" value="Teléfono móvil (iOS)" name="device[]" />
+                    <input type="checkbox" id="ios" value="<?php echo $valores_defecto["ios"] ?>" name="device[]" />
                     <label for="ios" class="checkbox">Teléfono móvil (iOS)</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="laptop" value="Ordenador Portátil" name="device[]" checked/>
+                    <input type="checkbox" id="laptop" value="<?php echo $valores_defecto["portatil"] ?>" name="device[]" checked/>
                     <label for="laptop" class="checkbox">Ordenador Portátil</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="pc" value="Ordenador de sobremesa" name="device[]" />
+                    <input type="checkbox" id="pc" value="<?php echo $valores_defecto["sobremesa"] ?>" name="device[]" />
                     <label for="pc" class="checkbox">Ordenador de sobremesa</label>
                 </div>
                 <br/>
@@ -104,10 +109,10 @@
             <div class="genero">
                 <p><b>Género:<span>&nbsp;</b></span></p>
                 <select name="genero_elegir" title="elige_genero">
-                    <option value="Hombre">Hombre</option>
-                    <option value="Mujer" selected>Mujer</option>
-                    <option value="Otro" selected>Otro</option>
-                    <option value="No especificado" selected>Prefiero no decirlo</option>
+                    <option value="<?php echo $valores_defecto["hombre"] ?>">Hombre</option>
+                    <option value="<?php echo $valores_defecto["mujer"] ?>" selected>Mujer</option>
+                    <option value="<?php echo $valores_defecto["otro"] ?>" selected>Otro</option>
+                    <option value="<?php echo $valores_defecto["especificar"] ?>">Prefiero no decirlo</option>
                 </select>
             </div>
             <input type="hidden" id="postId" name="postId" value="Daniel" />

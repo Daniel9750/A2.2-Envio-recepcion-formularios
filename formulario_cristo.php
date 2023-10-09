@@ -1,12 +1,17 @@
 <?php
-
     $valores_defecto = array (
-        "name" => "Cristo Rubén Pérez Suárez",
-        "password" => "1234"
+        "name"           => "Cristo Rubén Pérez Suárez",
+        "password"       => "1234",
+        "repeatPassword" => "1234",
+        "designer"       => "UX/UI Design",
+        "developer"      => "Full-Stack Engineer",
+        "devops"         => "DevOps",
+        "cloudArchitect" => "Cloud Solutions Architect",
+        "dataEngineer"   => "Data Science",
+        "inmediate"      => "Inmediata",
+        "days"           => "15 días"
     );
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +75,7 @@
             <!-- Input de texto -->
             <div>
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" value="<?php echo $valores_defecto["name"] ?>">
+                <input type="text" id="name" name="name" value="<?php echo $valores_defecto['name'] ?>">
             </div>
             <br/>
             <div>
@@ -80,7 +85,7 @@
             <br/>
             <div>
                 <label for="repeatPassword">Confirme su contraseña:</label>
-                <input type="password" id="repeatPassword" name="repeatPassword" value="1234">
+                <input type="password" id="repeatPassword" name="repeatPassword" value="<?php echo $valores_defecto['repeatPassword'] ?>">
             </div>
             <br/>
             <!-- Input checkbox -->
@@ -88,27 +93,27 @@
                 <legend><b>Selecciona los puestos de interés:</b></legend>
                 <br/>
                 <div>
-                    <input type="checkbox" id="desing" value="UX/UI Design" name="job[]" checked />
+                    <input type="checkbox" id="desing" value="<?php echo $valores_defecto['designer'] ?>" name="job[]" checked />
                     <label for="desing" class="checkbox">UX/UI Design</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="developer" value="Full-Stack Engineer" name="job[]" />
+                    <input type="checkbox" id="developer" value="<?php echo $valores_defecto['developer'] ?>" name="job[]" />
                     <label for="developer" class="checkbox">Full-Stack Engineer</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="devops" value="DevOps" name="job[]" />
+                    <input type="checkbox" id="devops" value="<?php echo $valores_defecto['devops'] ?>" name="job[]" />
                     <label for="devops" class="checkbox">DevOps</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="cloud" value="Cloud Solutions Architect" name="job[]" />
+                    <input type="checkbox" id="cloud" value="<?php echo $valores_defecto['cloudArchitect'] ?>" name="job[]" />
                     <label for="cloud" class="checkbox">Cloud Solutions Architect</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="data" value="Data Science" name="job[]" />
+                    <input type="checkbox" id="data" value="<?php echo $valores_defecto['dataEngineer'] ?>" name="job[]" />
                     <label for="data" class="checkbox">Data Science</label>
                 </div>
                 <br/>
@@ -118,8 +123,8 @@
             <div class="disponibilidad">
                 <p><b>Disponibilidad:<span>&nbsp;</b></span></p>
                 <select name="incorporation" title="Fecha de incorporación">
-                    <option value="Inmediata">Inmediata</option>
-                    <option value="15 días" selected>15 días</option>
+                    <option value="<?php echo $valores_defecto['inmediate'] ?>">Inmediata</option>
+                    <option value="<?php echo $valores_defecto['days'] ?>" selected>15 días</option>
                 </select>
             </div>
             <input type="hidden" id="postId" name="postId" value="Cristo" />
