@@ -362,7 +362,7 @@
             <div class="disponibilidad">
                 <p><b>Disponibilidad:<span>&nbsp;</b></span></p>
                 <select name="incorporation" title="Fecha de incorporación">
-                    <option value="inmediate"
+                    <option value="Inmediata"
                     <?php
                             if 
                             (
