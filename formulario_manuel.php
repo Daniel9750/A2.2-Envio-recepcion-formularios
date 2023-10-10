@@ -1,16 +1,11 @@
 <?php
     $valores_defecto = array(
         "name" => "Manuel",
-        "password" => "Contraseña de manolo",
-        "repitPassword" => "Contraseña repetida de manolo",
-        "checkboxAereo" => "Aéreo",
-        "checkboxMaritimo" => "Marítimo",
-        "checkboxTerrestre" => "Terrestre",
-        "radioRotables" => "Rotables",
-        "radioConsumibles" => "Consumibles",
-        "radioUtileria" => "Utilería",
-        "opcionOrigen" => "Origen",
-        "opcionDestino" => "Destino",
+        "password" => "12345",
+        "repeatPassword" => "12345",
+        "checkTransp" => "maritimo",
+        "radioBut" => "rotables",
+        "entregaSelect" => "destino"
     );
 ?>
 <!DOCTYPE html>
@@ -111,7 +106,7 @@
         <!-- Título con el autor del código -->
         <h1>Manuel Castillo Casañas</h1>
         <br/>
-        <!-- Formulario de petición laboral -->
+        <!-- Formulario de petición de datos -->
         <form action="./recibe_datos.php" method="post">
             <!-- Input de texto -->
             <div>
@@ -126,7 +121,7 @@
             <br/>
             <div>
                 <label for="repeatPassword">Repita su contraseña:</label>
-                <input type="password" id="repeatPassword" name="repeatPassword" value="<?php echo $valores_defecto['repitPassword'] ?>">
+                <input type="password" id="repeatPassword" name="repeatPassword" value="<?php echo $valores_defecto['repeatPassword'] ?>">
             </div>
             <br/>
             <!-- Input checkbox -->
@@ -134,17 +129,17 @@
                 <legend><b>Selecciona el tipo de transporte:</b></legend>
                 <br/>
                 <div>
-                    <input type="checkbox" id="aereo" value="<?php echo $valores_defecto['checkboxAereo'] ?>" name="transp[]" checked />
+                    <input type="checkbox" id="aereo" value="aereo" <?php if($valores_defecto['checkTransp'] == "aereo") echo "checked" ?> name="transp[]" />
                     <label for="aereo" class="checkbox">Aéreo</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="maritimo" value="<?php echo $valores_defecto['checkboxMaritimo'] ?>" name="transp[]" />
+                    <input type="checkbox" id="maritimo" value="maritimo" <?php if($valores_defecto['checkTransp'] == "maritimo") echo "checked" ?> name="transp[]"/>
                     <label for="maritimo" class="checkbox">Marítimo</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="terrestre" value="<?php echo $valores_defecto['checkboxTerrestre'] ?>" name="transp[]" />
+                    <input type="checkbox" id="terrestre" value="terrestre" <?php if($valores_defecto['checkTransp'] == "terrestre") echo "checked" ?> name="transp[]" />
                     <label for="terrestre" class="checkbox">Terrestre</label>
                 </div>
                 <br/>
@@ -155,17 +150,17 @@
                 <legend><b>Selecciona el tipo de repuesto:</b></legend>
                 <br/>
                 <div>
-                    <input type="radio" id="rotables" value="<?php echo $valores_defecto['radioRotables'] ?>" name="spare[]" checked />
+                    <input type="radio" id="rotables" value="rotables" <?php if($valores_defecto['radioBut'] === "rotables") echo "checked" ?> name="spare[]"/>
                     <label for="rotables" class="radio">Rotables</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="radio" id="consumibles" value="<?php echo $valores_defecto['radioConsumibles'] ?>" name="spare[]" />
+                    <input type="radio" id="consumibles" value="consumibles" <?php if($valores_defecto['radioBut'] === "consumibles") echo "checked" ?> name="spare[]" />
                     <label for="consumibles" class="radio">Consumibles</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="radio" id="utileria" value="<?php echo $valores_defecto['radioUtileria'] ?>" name="spare[]" />
+                    <input type="radio" id="utileria" value="utileria" <?php if($valores_defecto['radioBut'] === "utileria") echo "checked" ?> name="spare[]" />
                     <label for="utileria" class="radio">Utilería</label>
                 </div>
                 <br/>
@@ -175,8 +170,8 @@
             <div class="entrega">
                 <p><b>Entrega:<span>&nbsp;</b></span></p>
                 <select name="entrega" title="Lugar de entrega">
-                    <option value="<?php echo $valores_defecto['opcionOrigen'] ?>">Origen</option>
-                    <option value="<?php echo $valores_defecto['opcionDestino'] ?>" selected>Destino</option>
+                    <option value="Origen" <?php if($valores_defecto['entregaSelect'] === "origen") echo "selected" ?>>Origen</option>
+                    <option value="Destino" <?php if($valores_defecto['entregaSelect'] === "destino") echo "selected" ?>>Destino</option>
                 </select>
             </div>
             <input type="hidden" id="postId" name="postId" value="Manuel" />
