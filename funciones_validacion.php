@@ -204,7 +204,7 @@
     
             exit;
         } else {
-            echo 'formulario correcto.' . '<br/><br/> <b>Nombre:</b> ' . $_REQUEST['name'] . '<br/> <b>Contraseña1:</b> ' . $_REQUEST['password'] . '<br/> <b>Contraseña2:</b> ' . $_REQUEST['repeatPassword'] . '<br/>';
+            echo 'El formulario está correcto ✅' . '<br/><br/> <b>Nombre:</b> ' . $_REQUEST['name'] . '<br/> <b>Contraseña1:</b> ' . $_REQUEST['password'] . '<br/> <b>Contraseña2:</b> ' . $_REQUEST['repeatPassword'] . '<br/>';
     
             foreach ($_REQUEST['transp'] as $value) {
                 echo '<b>Tipo Transporte:</b> ' . $value . '<br/>';
