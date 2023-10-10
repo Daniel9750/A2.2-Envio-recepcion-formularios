@@ -6,7 +6,7 @@
         "repeatPassword" => "asdf76asd7f6",
         "developer"      => "Full-Stack Engineer",
         "i+d"            => "I+D",
-        "days"           => "15 días"
+        "incorporation"  => "15 días"
     );
 ?>
 <!DOCTYPE html>
@@ -367,7 +367,7 @@
                             if 
                             (
                                 // Condición.
-                                array_key_exists("inmediate", $valores_defecto)         // Compruebo si el array contiene la clave del campo antes de chequear.
+                                array_key_exists("incorporation", $valores_defecto)     // Compruebo si el array contiene la clave del campo antes de chequear.
                                 && 
                                 in_array("Inmediata", $valores_defecto)                 // Compruebo si el valor que nos llega es el mismo que el del campo.
                                 &&
@@ -382,12 +382,12 @@
                     >
                         Inmediata
                     </option>
-                    <option value="days" 
+                    <option value="15 días" 
                         <?php
                             if 
                             (
                                 // Condición.
-                                array_key_exists("days", $valores_defecto)              // Compruebo si el array contiene la clave del campo antes de chequear.
+                                array_key_exists("incorporation", $valores_defecto)     // Compruebo si el array contiene la clave del campo antes de chequear.
                                 && 
                                 in_array("15 días", $valores_defecto)                   // Compruebo si el valor que nos llega es el mismo que el del campo.
                                 &&
