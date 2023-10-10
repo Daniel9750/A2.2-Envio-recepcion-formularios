@@ -15,6 +15,9 @@
             $datosErroneos[] = "Debe seleccionar al menos un puesto de trabajo de interés ❌";
         }
 
+        // Validación de los input type radio.
+        ($_REQUEST['proyect'] !== 'i+d' && $_REQUEST['proyect'] !== 'ecommerce') ? $datosErroneos[] = "Debe seleccionar una opción de proyecto ❌" : null;
+
         // Validación de selección de opción.
         ($_REQUEST['incorporation'] !== 'Inmediata' && $_REQUEST['incorporation'] !== '15 días') ? $datosErroneos[] = "Debe seleccionar una fecha de incorporación ❌" : null;
 
