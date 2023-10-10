@@ -110,7 +110,7 @@
                 <p><b>Género:<span>&nbsp;</b></span></p>
                 <select name="genero_elegir" title="elige_genero">
                     <option value="<?php echo $valores_defecto["hombre"] ?>">Hombre</option>
-                    <option value="<?php echo $valores_defecto["mujer"] ?>" selected>Mujer</option>
+                    <option value="<?php echo $valores_defecto["mujer"] ?>">Mujer</option>
                     <option value="<?php echo $valores_defecto["otro"] ?>" selected>Otro</option>
                     <option value="<?php echo $valores_defecto["especificar"] ?>">Prefiero no decirlo</option>
                 </select>
