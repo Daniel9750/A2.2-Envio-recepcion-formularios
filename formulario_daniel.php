@@ -3,6 +3,9 @@
         "name"        => "Daniel Sánchez González",
         "email"       => "daniel.sánchez@ieselricon.com",
         "dni"         => "12345678H",
+        "dispositivo" => "portatil",
+        "genero"      => "otro",
+
         "android"     => "Teléfono móvil (Android)",
         "ios"         => "Teléfono móvil (iOS)",
         "portatil"    => "Ordenador Portátil",
@@ -10,8 +13,39 @@
         "hombre"      => "Hombre",
         "mujer"       => "Mujer",
         "otro"        => "Otro",
-        "especificar" => "Prefiero no decirlo                    ",
+        "especificar" => "Prefiero no decirlo",
     );
+
+
+$select_genero = "otro";
+
+$select_otro = "";
+
+$select_hombre = "";
+
+$select_mujer = "";
+
+$select_esp = "";
+
+switch ($select_genero)
+    {
+        case "otro":
+            $select_otro = "selected";
+            break;
+        case "hombre":
+            $select_hombre = "selected";
+            break;
+        case "mujer":
+            $select_mujer = "selected";
+            break;
+        case "especificar":
+            $select_esp = "selected";
+            break;
+    };
+
+
+
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,22 +120,22 @@
                 <h4 text-align: center>Selecciona los dispositivos que posees:</h4>
                 <br/>
                 <div>
-                    <input type="checkbox" id="android" value="<?php echo $valores_defecto["android"] ?>" name="device[]" checked />
+                    <input type="checkbox" id="android" value="android" name="device[]" <?php if (in_array("android", $valores_defecto)) {echo "checked";} ?>/>
                     <label for="android" class="checkbox">Teléfono móvil (Android)</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="ios" value="<?php echo $valores_defecto["ios"] ?>" name="device[]" />
+                    <input type="checkbox" id="ios" value="ios" name="device[]" <?php if (in_array("ios", $valores_defecto)) {echo "checked";} ?> />
                     <label for="ios" class="checkbox">Teléfono móvil (iOS)</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="laptop" value="<?php echo $valores_defecto["portatil"] ?>" name="device[]" checked/>
+                    <input type="checkbox" id="laptop" value="portatil" name="device[]" <?php if (in_array("portatil", $valores_defecto)) {echo "checked";} ?>/>
                     <label for="laptop" class="checkbox">Ordenador Portátil</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="pc" value="<?php echo $valores_defecto["sobremesa"] ?>" name="device[]" />
+                    <input type="checkbox" id="pc" value="sobremesa" name="device[]" <?php if (in_array("sobremesa", $valores_defecto)) {echo "checked";} ?>/>
                     <label for="pc" class="checkbox">Ordenador de sobremesa</label>
                 </div>
                 <br/>
@@ -109,10 +143,10 @@
             <div class="genero">
                 <p><b>Género:<span>&nbsp;</b></span></p>
                 <select name="genero_elegir" title="elige_genero">
-                    <option value="<?php echo $valores_defecto["hombre"] ?>">Hombre</option>
-                    <option value="<?php echo $valores_defecto["mujer"] ?>">Mujer</option>
-                    <option value="<?php echo $valores_defecto["otro"] ?>" selected>Otro</option>
-                    <option value="<?php echo $valores_defecto["especificar"] ?>">Prefiero no decirlo</option>
+                    <option value="hombre" <?php echo $select_hombre?>>Hombre</option>
+                    <option value="mujer" <?php echo $select_mujer?>>Mujer</option>
+                    <option value="otro" <?php echo $select_otro?> >Otro</option>
+                    <option value="especificar" <?php echo $select_esp?>>Prefiero no decirlo</option>
                 </select>
             </div>
             <input type="hidden" id="postId" name="postId" value="Daniel" />
