@@ -1,8 +1,8 @@
 <?php
     $valores_defecto = array (
         "name"        => "Daniel Sánchez González",
-        "email"       => "daniel.sánchez@ieselricon.com",
-        "dni"         => "12345678H",
+        "email"       => "danielsánchezgonzalez@alumno.ieselricon.com",
+        "dni"         => "12345678A",
         "dispositivo" => "portatil",
         "genero"      => "otro",
 
@@ -15,35 +15,6 @@
         "otro"        => "Otro",
         "especificar" => "Prefiero no decirlo",
     );
-
-
-$select_genero = "otro";
-
-$select_otro = "";
-
-$select_hombre = "";
-
-$select_mujer = "";
-
-$select_esp = "";
-
-switch ($select_genero)
-    {
-        case "otro":
-            $select_otro = "selected";
-            break;
-        case "hombre":
-            $select_hombre = "selected";
-            break;
-        case "mujer":
-            $select_mujer = "selected";
-            break;
-        case "especificar":
-            $select_esp = "selected";
-            break;
-    };
-
-
 
  
 ?>
@@ -120,34 +91,190 @@ switch ($select_genero)
                 <h4 text-align: center>Selecciona los dispositivos que posees:</h4>
                 <br/>
                 <div>
-                    <input type="checkbox" id="android" value="android" name="device[]" <?php if (in_array("android", $valores_defecto)) {echo "checked";} ?>/>
+                    <input type="checkbox" id="android" value="android" name="device[]"
+
+                        <?php
+                            if 
+                            (
+                                // Condición.
+                                array_key_exists("android", $valores_defecto)            // Compruebo si el array contiene la clave del campo antes de chequear.
+                                && 
+                                in_array("android", $valores_defecto)              // Compruebo si el valor que nos llega es el mismo que el del campo.
+                                &&
+                                isset($valores_defecto)                                 // Compruebo que el array está declarado y no tiene un valor nulo.
+                                &&
+                                !empty($valores_defecto)                                // Compruebo que el array no está vacío.
+                                &&
+                                is_array($valores_defecto)                              // Compruebo que es un array con un conjunto de datos del usuario lo que nos llega.
+                            )
+                                echo "checked";
+                        ?>
+                    />
+
                     <label for="android" class="checkbox">Teléfono móvil (Android)</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="ios" value="ios" name="device[]" <?php if (in_array("ios", $valores_defecto)) {echo "checked";} ?> />
+                    <input type="checkbox" id="ios" value="ios" name="device[]"
+
+                    <?php
+                            if 
+                            (
+                                // Condición.
+                                array_key_exists("ios", $valores_defecto)            // Compruebo si el array contiene la clave del campo antes de chequear.
+                                && 
+                                in_array("ios", $valores_defecto)              // Compruebo si el valor que nos llega es el mismo que el del campo.
+                                &&
+                                isset($valores_defecto)                                 // Compruebo que el array está declarado y no tiene un valor nulo.
+                                &&
+                                !empty($valores_defecto)                                // Compruebo que el array no está vacío.
+                                &&
+                                is_array($valores_defecto)                              // Compruebo que es un array con un conjunto de datos del usuario lo que nos llega.
+                            )
+                                echo "checked";
+                        ?>
+                    />
+
                     <label for="ios" class="checkbox">Teléfono móvil (iOS)</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="laptop" value="portatil" name="device[]" <?php if (in_array("portatil", $valores_defecto)) {echo "checked";} ?>/>
+                    <input type="checkbox" id="portatil" value="portatil" name="device[]"
+
+                    <?php
+                            if 
+                            (
+                                // Condición.
+                                array_key_exists("portatil", $valores_defecto)            // Compruebo si el array contiene la clave del campo antes de chequear.
+                                && 
+                                in_array("portatil", $valores_defecto)              // Compruebo si el valor que nos llega es el mismo que el del campo.
+                                &&
+                                isset($valores_defecto)                                 // Compruebo que el array está declarado y no tiene un valor nulo.
+                                &&
+                                !empty($valores_defecto)                                // Compruebo que el array no está vacío.
+                                &&
+                                is_array($valores_defecto)                              // Compruebo que es un array con un conjunto de datos del usuario lo que nos llega.
+                            )
+                                echo "checked";
+                        ?>
+                    />
+
+
                     <label for="laptop" class="checkbox">Ordenador Portátil</label>
                 </div>
                 <br/>
                 <div>
-                    <input type="checkbox" id="pc" value="sobremesa" name="device[]" <?php if (in_array("sobremesa", $valores_defecto)) {echo "checked";} ?>/>
+                    <input type="checkbox" id="sobremesa" value="sobremesa" name="device[]"
+
+                    <?php
+                            if 
+                            (
+                                // Condición.
+                                array_key_exists("sobremesa", $valores_defecto)            // Compruebo si el array contiene la clave del campo antes de chequear.
+                                && 
+                                in_array("sobremesa", $valores_defecto)              // Compruebo si el valor que nos llega es el mismo que el del campo.
+                                &&
+                                isset($valores_defecto)                                 // Compruebo que el array está declarado y no tiene un valor nulo.
+                                &&
+                                !empty($valores_defecto)                                // Compruebo que el array no está vacío.
+                                &&
+                                is_array($valores_defecto)                              // Compruebo que es un array con un conjunto de datos del usuario lo que nos llega.
+                            )
+                                echo "checked";
+                        ?>
+                    />
+
+
                     <label for="pc" class="checkbox">Ordenador de sobremesa</label>
                 </div>
                 <br/>
             <br/>
             <div class="genero">
                 <p><b>Género:<span>&nbsp;</b></span></p>
-                <select name="genero_elegir" title="elige_genero">
-                    <option value="hombre" <?php echo $select_hombre?>>Hombre</option>
-                    <option value="mujer" <?php echo $select_mujer?>>Mujer</option>
-                    <option value="otro" <?php echo $select_otro?> >Otro</option>
-                    <option value="especificar" <?php echo $select_esp?>>Prefiero no decirlo</option>
+                <select name="genero" title="elige_genero">
+                    <option value="hombre"
+                    <?php
+                            if 
+                            (
+                                // Condición.
+                                array_key_exists("genero", $valores_defecto)    
+                                && 
+                                in_array("hombre", $valores_defecto)                 
+                                &&
+                                isset($valores_defecto)                                
+                                &&
+                                !empty($valores_defecto)                               
+                                &&
+                                is_array($valores_defecto)                             
+                            )
+                                echo "selected";
+                        ?>
+                    >Hombre</option>
+
+                    <option value="mujer" 
+                    <?php
+                            if 
+                            (
+                                // Condición.
+                                array_key_exists("genero", $valores_defecto)     
+                                && 
+                                in_array("mujer", $valores_defecto)                 
+                                &&
+                                isset($valores_defecto)                                 
+                                &&
+                                !empty($valores_defecto)                                
+                                &&
+                                is_array($valores_defecto)                              
+                            )
+                                echo "selected";
+                        ?>
+                    >Mujer</option>
+
+                    <option value="otro" 
+                    
+                    <?php
+                            if 
+                            (
+                                // Condición.
+                                array_key_exists("genero", $valores_defecto)     
+                                && 
+                                in_array("otro", $valores_defecto)                 
+                                &&
+                                isset($valores_defecto)                                 
+                                &&
+                                !empty($valores_defecto)                                
+                                &&
+                                is_array($valores_defecto)                              
+                            )
+                                echo "selected";
+                        ?>
+                    
+                    
+                    >Otro</option>
+
+
+                    <option value="especificar" 
+                    
+                    <?php
+                            if 
+                            (
+                                // Condición.
+                                array_key_exists("genero", $valores_defecto)    
+                                && 
+                                in_array("especificar", $valores_defecto)                
+                                &&
+                                isset($valores_defecto)                                 
+                                &&
+                                !empty($valores_defecto)                               
+                                &&
+                                is_array($valores_defecto)                             
+                            )
+                                echo "selected";
+                        ?>
+                       
+                    >Prefiero no decirlo</option>
                 </select>
+
             </div>
             <input type="hidden" id="postId" name="postId" value="Daniel" />
             <br/>

@@ -99,22 +99,15 @@
         (!isset($_REQUEST['email'])          || empty($_REQUEST['email']))          ? $datosErroneos[] = "Error en el correo electrónico ❌" : null;
         (!isset($_REQUEST['dni'])            || empty($_REQUEST['dni']))            ? $datosErroneos[] = "Error en el DNI ❌"                : null;
 
-        foreach ($_REQUEST['device'] as $dispositivo)
-        {
-            if
-            (
-                $dispositivo !== 'Teléfono móvil (Android)'              && 
-                $dispositivo !== 'Teléfono móvil (iOS)'                  &&
-                $dispositivo !== 'Ordenador Portátil'                    && 
-                $dispositivo !== 'Ordenador de sobremesa'    
-            )
+
+            if (!isset($_REQUEST['device']) || empty($_REQUEST['device'])) 
             {
                 $datosErroneos[] = "Por favor, seleccione al menos un dispositivo ❌";
             }
-        }
 
-        ($_REQUEST['genero_elegir'] !== 'Hombre' && $_REQUEST['genero_elegir'] !== 'Mujer' 
-        && $_REQUEST['genero_elegir'] !== 'Otro' && $_REQUEST['genero_elegir'] !== 'No especificado') 
+
+        ($_REQUEST['genero'] !== 'hombre' && $_REQUEST['genero'] !== 'mujer' 
+        && $_REQUEST['genero'] !== 'otro' && $_REQUEST['genero'] !== 'especificar') 
         ? $datosErroneos[] = "Por favor, elija una opción ❌" : null;
 
         if (!empty($datosErroneos)) 
@@ -161,7 +154,7 @@
                 echo '<b>Dispositivo:</b> ' . $value . '<br/>';
             }
 
-            echo '<b>Género:</b> ' . $_REQUEST['genero_elegir'];
+            echo '<b>Género:</b> ' . $_REQUEST['genero'];
         }
     }
 
