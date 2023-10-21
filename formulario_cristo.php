@@ -38,6 +38,9 @@
                     echo "La siguiente línea: '" . $linea . "' no cumple el formato correcto";
                 }
             }
+
+            // Paso 9) Cerramos el fichero después de usarlo para que no consuma memoria.
+            fclose($fichero);
         }
 
         // Paso 4.B) Si el archivo no se puede abrir, lo indicamos y finalizamos la ejecución.
@@ -50,8 +53,7 @@
     // Paso 2.B) Lanzar un mensaje de error porque el fichero no existe en la ruta.
     else 
     {
-        echo "El archivo '" . $ruta . "' no existe en el directorio actual.";
-        echo "<br/>";
+        echo "El archivo '" . $ruta . "' no existe en el directorio actual. <br/>";
     }
 
     // $valores_defecto = array
