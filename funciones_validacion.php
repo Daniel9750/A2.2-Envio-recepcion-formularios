@@ -1,4 +1,5 @@
 <?php
+
     // Función que comprueba los datos enviados al controlador.
     function validate_form_cristo()
     {

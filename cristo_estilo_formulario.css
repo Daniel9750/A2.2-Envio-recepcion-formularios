@@ -1,0 +1,57 @@
+body 
+{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container 
+{
+    width: 50%;
+    margin: 2% auto;
+    padding: 2%;
+    border: 1px solid darkgray;
+    background-color: #ECEFF4;
+}
+
+h1 
+{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+label 
+{
+    width: 30%;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"]
+{
+    width: 70%;
+    float: right;
+}
+
+.disponibilidad 
+{
+    display: flex;
+}
+
+p 
+{
+    margin: 0;
+    padding: 0;
+}
+
+.enviar 
+{
+    width: 20%;
+    float: none;
+    margin: 0 auto;
+}
+
+.checkbox, .radio 
+{
+    font-weight: normal !important;
+}
