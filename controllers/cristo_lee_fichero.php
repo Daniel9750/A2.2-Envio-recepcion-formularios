@@ -4,7 +4,7 @@
     global $valores_defecto;
 
     // Paso 2) Almacenar la ruta del fichero.
-    $ruta = "cristo_valores_defecto.txt";
+    $ruta = "database\\cristo_valores_defecto.txt";
     
     // Paso 3.A) Comprobar que el fichero está dentro de la ruta.
     if (file_exists($ruta))

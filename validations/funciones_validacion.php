@@ -28,7 +28,7 @@
             !isset($_FILES['fichero1']) || empty($_FILES['fichero1'])
         ) 
         {
-            throw new Exception("¡ERROR! (verifique los documentos).");
+            $datosErroneos[] = "Debe incluir un documento como mínimo.";
         }
 
         $_fileName1      = $_FILES['fichero1']['name'];     
@@ -46,7 +46,7 @@
             !in_array($_fileExtension1, $_fileFormats1)
         )
         {
-            throw new Exception("¡ERROR! (verifique los documentos).");
+            $datosErroneos[] = "No se ha podido guarda el documento, compruebe el formato y el tamaño.";
         }
 
         // Validación de los ficheros con extensión de tipo imagen.
@@ -55,7 +55,7 @@
             !isset($_FILES['foto']) || empty($_FILES['foto'])
         ) 
         {
-            throw new Exception("¡ERROR! (verifique la foto).");
+            $datosErroneos[] = "Debe incluir una imagen como mínimo.";
         }
 
         $_photoName      = $_FILES['foto']['name'];     
@@ -73,7 +73,7 @@
             !in_array($_photoExtension, $_photoFormats)
         )
         {
-            throw new Exception("¡ERROR! (verifique la foto).");
+            $datosErroneos[] = "No se ha podido guarda la imagen, compruebe el formato y el tamaño.";
         }
 
         // // Validación de los archivos.
@@ -112,15 +112,15 @@
             
             // Redireccionar 2 segundos después de mostrar todos los mensajes utilizando JavaScript.
             echo 
-            '
+            "
                 <script>
                     setTimeout(function() 
                     {
-                        alert("Vuelva a rellenar el formulario.");
-                        window.location.href = "formulario_cristo.php";
+                        alert('Vuelva a rellenar el formulario.');
+                        window.location.href = '/dsw/A2.2-Envio-recepcion-formularios/formulario_cristo.php';
                     }, 2000);
                 </script>
-            ';
+            ";
             
             exit;
         }

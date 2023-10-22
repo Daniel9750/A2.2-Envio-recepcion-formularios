@@ -4,12 +4,12 @@
      *  - Lee los datos almacenados en el fichero cristo_valores_defecto.txt
      *  - Almacena los datos del fichero en la memoria ram mediante el array $valores_defecto.
      */
-    require_once "cristo_lee_fichero.php";
+    require_once "./controllers/cristo_lee_fichero.php";
 
     /**
      *  - Contiene una función que comprueba si los datos que devuelve el fichero son los enviados anteriormente por el usuario. 
      */
-    require_once "cristo_valida_fichero.php";
+    require_once "./validations/cristo_valida_fichero.php";
 
 ?>
 
@@ -24,7 +24,7 @@
         <title>Formularios UT2</title>
 
         <!-- Estilos del formulario -->
-        <link rel="stylesheet" href="./cristo_estilo_formulario.css">
+        <link rel="stylesheet" href="./styles/cristo_estilo_formulario.css">
     </head>
 
     <body>
@@ -40,7 +40,7 @@
             <!-- Añadimos el parámetro enctype="multipart/form-data" para que se puedan enviar archivos y no solo texto -->
             <!-- El método debe ser de tipo post cuando se envían archivos -->
             <form 
-                action="recibe_datos.php" 
+                action="./controllers/recibe_datos.php" 
                 method="post" 
                 enctype="multipart/form-data"
             >
