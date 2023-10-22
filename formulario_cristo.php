@@ -1,19 +1,26 @@
 <?php
+    // Declarar $valores_defecto como una variable global.
+    global $valores_defecto;
+
     // Paso 1) Almacenar la ruta del fichero.
     $ruta = "cristo_valores_defecto.txt";
-
+    
     // Paso 2.A) Comprobar que el fichero está dentro de la ruta.
-    if (file_exists($ruta)) 
+    if (file_exists($ruta))
     {
         // Paso 3) Abrir el fichero en modo lectura porque existe en la ruta.
         $fichero = fopen($ruta, "r");
-
+        
         // Paso 4.A) Comprobar que el fichero se abrió correctamente.
-        if ($fichero) 
+        /**
+         *  - if ($fichero): No se puede comprobar directamente porque fopen devuelve un resource.
+         *  - Hay que comprobar si el valor es diferente de falso, que significa que no lo pudo abrir.
+         */
+        if ($fichero !== false)
         {
             // Paso 5) Creamos el array asociativo que va a guardar los datos del fichero.
             $valores_defecto = array();
-
+            
             // Paso 6) Leemos las líneas del fichero.
             while ($linea = fgets($fichero))
             {
@@ -23,7 +30,7 @@
                  *  - Seguirá siendo una variable convirtiéndose todo el rato en arrays.
                  */
                 $parts = explode(": ", $linea);
-
+                
                 // Paso 8.A) Verificamos que el array contiene, 3 pociones o más: Clave, Valor y Null.
                 if (count($parts) >= 2) 
                 {
@@ -55,7 +62,7 @@
     {
         echo "El archivo '" . $ruta . "' no existe en el directorio actual. <br/>";
     }
-
+    print_r($valores_defecto);
     // $valores_defecto = array
     // (
     //     "name"           => "Cristo Rubén Pérez Suárez",
@@ -137,7 +144,7 @@
             <!-- Input de texto -->
             <div>
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" value="<?php
+                <input type="text" id="name" name="name" value="<?php echo $valores_defecto["name"];
                         // Regex
                         $nombre = $valores_defecto["name"];
                         $patron = '/^[A-Z][a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/u';
