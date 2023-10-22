@@ -22,6 +22,68 @@
         // Validación de selección de opción.
         ($_REQUEST['incorporation'] !== 'Inmediata' && $_REQUEST['incorporation'] !== '15 días') ? $datosErroneos[] = "Debe seleccionar una fecha de incorporación ❌" : null;
 
+        // Validación de los ficheros con extensión de tipo documento.
+        if 
+        (
+            !isset($_FILES['fichero1']) || empty($_FILES['fichero1'])
+        ) 
+        {
+            throw new Exception("¡ERROR! (verifique los documentos).");
+        }
+
+        $_fileName1      = $_FILES['fichero1']['name'];     
+        $_fileError1     = $_FILES['fichero1']['error'];    
+        $_fileSize1      = $_FILES['fichero1']['size'];    
+        $_fileMaxSize1   = 1024 * 1024 * 1;
+        $_fileExtension1 = pathinfo($_fileName1, PATHINFO_EXTENSION);
+        $_fileFormats1   = array('txt','pdf','docx','xlsx','pptx','odt');
+        
+        if
+        (
+            $_fileError1 === true                       ||
+            $_fileSize1   >  $_fileMaxSize1             ||
+            $_fileSize1   <  1                          ||
+            !in_array($_fileExtension1, $_fileFormats1)
+        )
+        {
+            throw new Exception("¡ERROR! (verifique los documentos).");
+        }
+
+        // Validación de los ficheros con extensión de tipo imagen.
+        if 
+        (
+            !isset($_FILES['foto']) || empty($_FILES['foto'])
+        ) 
+        {
+            throw new Exception("¡ERROR! (verifique la foto).");
+        }
+
+        $_photoName      = $_FILES['foto']['name'];     
+        $_photoError     = $_FILES['foto']['error'];    
+        $_photoSize      = $_FILES['foto']['size'];    
+        $_photoMaxSize   = 1024 * 1024 * 1;
+        $_photoExtension = pathinfo($_photoName, PATHINFO_EXTENSION);
+        $_photoFormats   = array('jpg','png','gif');
+
+        if
+        (
+            $_photoError === true                       ||
+            $_photoSize   >  $_photoMaxSize             ||
+            $_photoSize   <  1                          ||
+            !in_array($_photoExtension, $_photoFormats)
+        )
+        {
+            throw new Exception("¡ERROR! (verifique la foto).");
+        }
+
+        // // Validación de los archivos.
+        // $moveUploadedFile = move_uploaded_file
+        // (
+        //     $_FILES["fichero"]["tmp_name"],
+        //     "./ficheros" .
+        //     $_FILES["fichero"]["name"]
+        // );
+
         /**
          *  - 1. Después de validar los campos, comprobamos si el array no está vacío para imprimir los campos que fueron erróneos.
          *  - 2. Después redireccionamos para que vuelva a cumplimentar los datos de manera correcta.

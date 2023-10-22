@@ -24,7 +24,7 @@
         <title>Formularios UT2</title>
 
         <!-- Estilos del formulario -->
-        <link rel="stylesheet" href="./estilos/estilos_formulario_cristo.css">
+        <link rel="stylesheet" href="./cristo_estilo_formulario.css">
     </head>
 
     <body>
@@ -37,15 +37,21 @@
             <br/>
 
             <!-- Formulario de petición laboral -->
-            <form action="recibe_datos.php" method="post">
+            <!-- Añadimos el parámetro enctype="multipart/form-data" para que se puedan enviar archivos y no solo texto -->
+            <!-- El método debe ser de tipo post cuando se envían archivos -->
+            <form 
+                action="recibe_datos.php" 
+                method="post" 
+                enctype="multipart/form-data"
+            >
 
                 <!-- Input de texto -->
                 <div>
                     <label for="name">Nombre:</label>
                     <input 
-                        type="text" 
-                        id="name" 
-                        name="name" 
+                        type="text"
+                        id="name"
+                        name="name"
                         value="<?php if (response_validation("name", "Cristo Rubén Pérez Suárez", $valores_defecto)) echo $valores_defecto["name"]; ?>">
                 </div>
                 <br/>
@@ -190,24 +196,29 @@
 
                 <!-- Input type file para documentos -->
                 <div>
-                <label for="foto">Selecciona un documento: </label>
-                    <input 
+                    <label for="fichero1">Selecciona un documento: </label>
+                    <input
+                        id="fichero1" 
                         type="file" 
-                        name="fichero"
+                        name="fichero1"
                         accept=".txt,.pdf,.docx,.xlsx,.pptx,.odt" 
                     />
                 </div>
+
                 <br/>
-                <!-- Input type file para imagenes -->
+
+                <!-- Input type file para imágenes -->
                 <div>
                     <label for="foto">Selecciona una foto: </label>
                     <input 
                         type="file" 
                         id="foto"
-                        name="foto" 
+                        name="foto"
                         accept=".jpg,.gif,.png" 
                     />
                 </div>
+
+
                 <input 
                     type="hidden" 
                     id="postId" 
