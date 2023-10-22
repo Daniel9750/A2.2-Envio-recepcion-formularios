@@ -1,20 +1,44 @@
 <?php
-    $valores_defecto = array (
-        "name"        => "Daniel Sánchez González",
-        "email"       => "danielsánchezgonzalez@alumno.ieselricon.com",
-        "dni"         => "12345678A",
-        "dispositivo" => "portatil",
-        "genero"      => "otro",
+    $ruta = "daniel_valores_defecto.txt";
 
-        "android"     => "Teléfono móvil (Android)",
-        "ios"         => "Teléfono móvil (iOS)",
-        "portatil"    => "Ordenador Portátil",
-        "sobremesa"   => "Ordenador de sobremesa",
-        "hombre"      => "Hombre",
-        "mujer"       => "Mujer",
-        "otro"        => "Otro",
-        "especificar" => "Prefiero no decirlo",
-    );
+    if (file_exists($ruta)) 
+    {
+        $fichero = fopen($ruta, "r");
+
+        if ($fichero) 
+        {
+            $valores_defecto = array();
+
+            while ($linea = fgets($fichero))
+            {
+                $parts = explode(": ", $linea);
+
+                if (count($parts) >= 2) 
+                {
+                    $_clave = trim($parts[0]); 
+                    $_valor = trim($parts[1]);     
+                    $valores_defecto[$_clave] = $_valor;
+                }
+
+                else 
+                {
+                    echo "La siguiente línea: '" . $linea . "' no cumple el con formato";
+                }
+            }
+            fclose($fichero);
+        }
+
+
+        else 
+        {
+            echo "No se puede abrir el archivo '" . $ruta . "'<br>";
+        }
+    }
+
+    else 
+    {
+        echo "El archivo '" . $ruta . "' no existe en este directorio. <br/>";
+    }
 
  
 ?>
@@ -96,16 +120,15 @@
                         <?php
                             if 
                             (
-                                // Condición.
-                                array_key_exists("android", $valores_defecto)            // Compruebo si el array contiene la clave del campo antes de chequear.
+                                array_key_exists("android", $valores_defecto)           
                                 && 
-                                in_array("android", $valores_defecto)              // Compruebo si el valor que nos llega es el mismo que el del campo.
+                                in_array("android", $valores_defecto)              
                                 &&
-                                isset($valores_defecto)                                 // Compruebo que el array está declarado y no tiene un valor nulo.
+                                isset($valores_defecto)                                
                                 &&
-                                !empty($valores_defecto)                                // Compruebo que el array no está vacío.
+                                !empty($valores_defecto)                               
                                 &&
-                                is_array($valores_defecto)                              // Compruebo que es un array con un conjunto de datos del usuario lo que nos llega.
+                                is_array($valores_defecto)                            
                             )
                                 echo "checked";
                         ?>
@@ -120,16 +143,15 @@
                     <?php
                             if 
                             (
-                                // Condición.
-                                array_key_exists("ios", $valores_defecto)            // Compruebo si el array contiene la clave del campo antes de chequear.
+                                array_key_exists("ios", $valores_defecto)           
                                 && 
-                                in_array("ios", $valores_defecto)              // Compruebo si el valor que nos llega es el mismo que el del campo.
+                                in_array("ios", $valores_defecto)              
                                 &&
-                                isset($valores_defecto)                                 // Compruebo que el array está declarado y no tiene un valor nulo.
+                                isset($valores_defecto)                                
                                 &&
-                                !empty($valores_defecto)                                // Compruebo que el array no está vacío.
+                                !empty($valores_defecto)                                
                                 &&
-                                is_array($valores_defecto)                              // Compruebo que es un array con un conjunto de datos del usuario lo que nos llega.
+                                is_array($valores_defecto)                              
                             )
                                 echo "checked";
                         ?>
@@ -144,16 +166,15 @@
                     <?php
                             if 
                             (
-                                // Condición.
-                                array_key_exists("portatil", $valores_defecto)            // Compruebo si el array contiene la clave del campo antes de chequear.
+                                array_key_exists("portatil", $valores_defecto)            
                                 && 
-                                in_array("portatil", $valores_defecto)              // Compruebo si el valor que nos llega es el mismo que el del campo.
+                                in_array("portatil", $valores_defecto)             
                                 &&
-                                isset($valores_defecto)                                 // Compruebo que el array está declarado y no tiene un valor nulo.
+                                isset($valores_defecto)                                 
                                 &&
-                                !empty($valores_defecto)                                // Compruebo que el array no está vacío.
+                                !empty($valores_defecto)                               
                                 &&
-                                is_array($valores_defecto)                              // Compruebo que es un array con un conjunto de datos del usuario lo que nos llega.
+                                is_array($valores_defecto)                          
                             )
                                 echo "checked";
                         ?>
@@ -169,16 +190,15 @@
                     <?php
                             if 
                             (
-                                // Condición.
-                                array_key_exists("sobremesa", $valores_defecto)            // Compruebo si el array contiene la clave del campo antes de chequear.
+                                array_key_exists("sobremesa", $valores_defecto)          
                                 && 
-                                in_array("sobremesa", $valores_defecto)              // Compruebo si el valor que nos llega es el mismo que el del campo.
+                                in_array("sobremesa", $valores_defecto)             
                                 &&
-                                isset($valores_defecto)                                 // Compruebo que el array está declarado y no tiene un valor nulo.
+                                isset($valores_defecto)                                
                                 &&
-                                !empty($valores_defecto)                                // Compruebo que el array no está vacío.
+                                !empty($valores_defecto)                              
                                 &&
-                                is_array($valores_defecto)                              // Compruebo que es un array con un conjunto de datos del usuario lo que nos llega.
+                                is_array($valores_defecto)                            
                             )
                                 echo "checked";
                         ?>
@@ -196,7 +216,6 @@
                     <?php
                             if 
                             (
-                                // Condición.
                                 array_key_exists("genero", $valores_defecto)    
                                 && 
                                 in_array("hombre", $valores_defecto)                 
@@ -215,7 +234,6 @@
                     <?php
                             if 
                             (
-                                // Condición.
                                 array_key_exists("genero", $valores_defecto)     
                                 && 
                                 in_array("mujer", $valores_defecto)                 
@@ -235,7 +253,6 @@
                     <?php
                             if 
                             (
-                                // Condición.
                                 array_key_exists("genero", $valores_defecto)     
                                 && 
                                 in_array("otro", $valores_defecto)                 
@@ -258,7 +275,6 @@
                     <?php
                             if 
                             (
-                                // Condición.
                                 array_key_exists("genero", $valores_defecto)    
                                 && 
                                 in_array("especificar", $valores_defecto)                
