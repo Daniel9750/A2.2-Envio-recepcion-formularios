@@ -214,7 +214,7 @@
                         type="file" 
                         id="foto"
                         name="foto"
-                        accept=".jpg,.gif,.png" 
+                        accept=".jpg,.gif,.png,.jfif"
                     />
                 </div>
 

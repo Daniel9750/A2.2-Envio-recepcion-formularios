@@ -1,5 +1,7 @@
 <?php
 
+    include_once "C:\\xampp\htdocs\\dsw\\A2.2-Envio-recepcion-formularios\\controllers\\guardar_ficheros.php";
+
     // Función que comprueba los datos enviados al controlador.
     function validate_form_cristo()
     {
@@ -48,6 +50,10 @@
         {
             $datosErroneos[] = "No se ha podido guarda el documento, compruebe el formato y el tamaño.";
         }
+        else 
+        {
+            store_file();
+        }
 
         // Validación de los ficheros con extensión de tipo imagen.
         if 
@@ -63,7 +69,7 @@
         $_photoSize      = $_FILES['foto']['size'];    
         $_photoMaxSize   = 1024 * 1024 * 1;
         $_photoExtension = pathinfo($_photoName, PATHINFO_EXTENSION);
-        $_photoFormats   = array('jpg','png','gif');
+        $_photoFormats   = array('jpg','png','gif','jfif');
 
         if
         (
@@ -75,14 +81,10 @@
         {
             $datosErroneos[] = "No se ha podido guarda la imagen, compruebe el formato y el tamaño.";
         }
-
-        // // Validación de los archivos.
-        // $moveUploadedFile = move_uploaded_file
-        // (
-        //     $_FILES["fichero"]["tmp_name"],
-        //     "./ficheros" .
-        //     $_FILES["fichero"]["name"]
-        // );
+        else
+        {
+            store_image();
+        }
 
         /**
          *  - 1. Después de validar los campos, comprobamos si el array no está vacío para imprimir los campos que fueron erróneos.
@@ -145,12 +147,21 @@
                 '<br/>'                        
                 ;
 
+            echo '<b>Puesto:</b> ';
+
             foreach ($_REQUEST['job'] as $value) 
             {
-                echo '<b>Puesto:</b> ' . $value . '<br/>';
+                if ($value == end($_REQUEST['job'])) 
+                    echo $value . ".";
+                else 
+                    echo $value . ", ";
             }
 
-            echo '<b>Fecha de incorporación:</b> ' . $_REQUEST['incorporation'];
+            echo '<br/>';
+
+            echo '<b>Fecha de incorporación:</b> ' . $_REQUEST['incorporation'] . '<br/>';
+
+            echo '<br/> <b>Archivos almacenados correctamente!</b>';
         }
     }
 
