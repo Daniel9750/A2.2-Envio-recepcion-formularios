@@ -1,0 +1,6 @@
+name: Cristo Rubén Pérez Suárez,
+password: asdf76asd7f6,
+repeatPassword: asdf76asd7f6,
+developer: Full-Stack Engineer,
+i+d: I+D,
+incorporation: 15 días,
