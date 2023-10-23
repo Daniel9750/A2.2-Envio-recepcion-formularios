@@ -12,13 +12,20 @@
         {
             $counter++;                                                     // Si el archivo existe, aumentar el valor de counter en 1.
     
+            $pathinfo = pathinfo($target_file);                             // Obtener la información sobre el archivo.
+
+            $name = $pathinfo["filename"];                                  // Obtener el nombre del archivo.
+            $extension = $pathinfo["extension"];                            // Obtener la extesión del archivo.
+
             $target_file =  $target_dir                                     // Directorio donde se van a guardar los archivos.
                             . 
-                            basename($_FILES["fichero1"]["name"])           // basename devuelve el nombre del archivo sin el directorio.
+                            $name                                           // basename devuelve el nombre del archivo sin el directorio.
                             . 
                             "_"                                             // Añadimos la barra baja para concatenar el número incremental.
                             . 
-                            $counter;                                       // Concatenamos el contador para diferenciar el nuevo archivo del viejo.
+                            $counter                                        // Concatenamos el contador para diferenciar el nuevo archivo del viejo.
+                            .
+                            $extension;
         }
 
         move_uploaded_file($_FILES["fichero1"]["tmp_name"], $target_file);  // Movemos el archivo de la ruta temporal a la ruta de destino.
@@ -35,17 +42,24 @@
         while (file_exists($target_file)) 
         {
             $counter++;                                                     // Si la imagen existe, aumentar el valor de counter en 1.
+
+            $pathinfo = pathinfo($target_file);                             // Obtener la información sobre la imagen.
+
+            $name = $pathinfo["filename"];                                  // Obtener el nombre de la imagen.
+            $extension = $pathinfo["extension"];                            // Obtener la extesión de la imagen.
     
             $target_file =  $target_dir                                     // Directorio donde se van a guardar las imagenes.
                             . 
-                            basename($_FILES["fichero1"]["name"])           // basename devuelve el nombre de la imagen sin el directorio.
+                            $name                                           // Nombre de la imagen.
                             . 
                             "_"                                             // Añadimos la barra baja para concatenar el número incremental.
                             . 
-                            $counter;                                       // Concatenamos el contador para diferenciar la nueva imagen de la vieja.
+                            $counter                                        // Concatenamos el contador para diferenciar la nueva imagen de la vieja.
+                            .
+                            $extension;                                     // Extensión de la imagen.
         }
 
-        move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);          // Movemos la imagen de la ruta temporal a la ruta de destino.
+        move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);      // Movemos la imagen de la ruta temporal a la ruta de destino.
     }
 
 ?>
