@@ -6,10 +6,18 @@
      */
     require_once "./controllers/cristo_lee_fichero.php";
 
+    cristo_lee_fichero();
+
     /**
      *  - Contiene una función que comprueba si los datos que devuelve el fichero son los enviados anteriormente por el usuario. 
      */
     require_once "./validations/cristo_valida_fichero.php";
+
+    /**
+     *  - Función que se encarga de escribir los datos en el fichero.
+     *  - Recibe como parámetros los datos recibidos del formulario y el nombre del fichero.
+     */
+    require_once "./cristo_escribe_fichero.php";
 
 ?>
 
