@@ -6,6 +6,8 @@
      */
     require_once "./controllers/cristo_lee_fichero.php";
 
+    cristo_lee_fichero();
+
     /**
      *  - Contiene una función que comprueba si los datos que devuelve el fichero son los enviados anteriormente por el usuario. 
      */
