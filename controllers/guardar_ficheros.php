@@ -44,7 +44,8 @@
                             . 
                             $counter;                                       // Concatenamos el contador para diferenciar la nueva imagen de la vieja.
         }
+
+        move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);          // Movemos la imagen de la ruta temporal a la ruta de destino.
     }
 
-    move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file);          // Movemos la imagen de la ruta temporal a la ruta de destino.
 ?>
