@@ -126,7 +126,7 @@
                     setTimeout(function() 
                     {
                         alert('Vuelva a rellenar el formulario.');
-                        window.location.href = '/dsw/A2.2-Envio-recepcion-formularios/formulario_cristo.php';
+                        window.location.href = '../formulario_cristo.php';
                     }, 2000);
                 </script>
             ";
