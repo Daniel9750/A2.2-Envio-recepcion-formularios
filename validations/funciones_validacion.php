@@ -1,6 +1,6 @@
 <?php
 
-    include_once "C:\\xampp\htdocs\\dsw\\A2.2-Envio-recepcion-formularios\\controllers\\guardar_ficheros.php";
+    include_once "..guardar_ficheros.phpguardar_ficheros.php";
 
     // Función que comprueba los datos enviados al controlador.
     function validate_form_cristo()
