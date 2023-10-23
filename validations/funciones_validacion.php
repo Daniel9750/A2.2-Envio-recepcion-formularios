@@ -7,7 +7,7 @@
      *  - Función que se encarga de escribir los datos en el fichero.
      *  - Recibe como parámetros los datos recibidos del formulario y el nombre del fichero.
      */
-    require_once "./controllers/cristo_escribe_fichero.php";
+    require_once "..\\controllers\\cristo_escribe_fichero.php";
 
     // Función que comprueba los datos enviados al controlador.
     function validate_form_cristo()
@@ -138,6 +138,9 @@
         // Tambien almacenamos los datos del formulario en el archivo cristo_almacena_formulario dado que está correcta la validación.
         else 
         {
+
+            // Escribimos los datos del fichero si todo esta correcto.
+            cristo_escribe_fichero();
 
             echo 
                 'El formulario está correcto ✅'
