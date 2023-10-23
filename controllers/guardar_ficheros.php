@@ -25,7 +25,9 @@
                             . 
                             $counter                                        // Concatenamos el contador para diferenciar el nuevo archivo del viejo.
                             .
-                            $extension;
+                            "."                                             // Punto antés de la extesión del archivo.
+                            .
+                            $extension;                                     // Extensión del archivo.
         }
 
         move_uploaded_file($_FILES["fichero1"]["tmp_name"], $target_file);  // Movemos el archivo de la ruta temporal a la ruta de destino.
@@ -55,6 +57,8 @@
                             "_"                                             // Añadimos la barra baja para concatenar el número incremental.
                             . 
                             $counter                                        // Concatenamos el contador para diferenciar la nueva imagen de la vieja.
+                            .
+                            "."
                             .
                             $extension;                                     // Extensión de la imagen.
         }
