@@ -197,6 +197,66 @@
         && $_REQUEST['genero'] !== 'otro' && $_REQUEST['genero'] !== 'especificar') 
         ? $datosErroneos[] = "Por favor, elija una opción ❌" : null;
 
+        if 
+        (
+            !isset($_FILES['fichero1']) || empty($_FILES['fichero1'])
+        ) 
+        {
+            $datosErroneos[] = "Por favor, incluya un documento. ❌";
+        }
+
+        $_fileName1      = $_FILES['fichero1']['name'];     
+        $_fileError1     = $_FILES['fichero1']['error'];    
+        $_fileSize1      = $_FILES['fichero1']['size'];    
+        $_fileMaxSize1   = 1024 * 1024 * 1;
+        $_fileExtension1 = pathinfo($_fileName1, PATHINFO_EXTENSION);
+        $_fileFormats1   = array('txt','pdf','docx','xlsx','pptx','odt');
+        
+        if
+        (
+            $_fileError1 === true                       ||
+            $_fileSize1   >  $_fileMaxSize1             ||
+            $_fileSize1   <  1                          ||
+            !in_array($_fileExtension1, $_fileFormats1)
+        )
+        {
+            $datosErroneos[] = "Error al guardar documento, compruebe el formato y/o el tamaño. ❌";
+        }
+        else 
+        {
+            store_file();
+        }
+
+        if 
+        (
+            !isset($_FILES['foto']) || empty($_FILES['foto'])
+        ) 
+        {
+            $datosErroneos[] = "Por favor, incluya una imágen. ❌";
+        }
+
+        $_photoName      = $_FILES['foto']['name'];     
+        $_photoError     = $_FILES['foto']['error'];    
+        $_photoSize      = $_FILES['foto']['size'];    
+        $_photoMaxSize   = 1024 * 1024 * 1;
+        $_photoExtension = pathinfo($_photoName, PATHINFO_EXTENSION);
+        $_photoFormats   = array('jpg','png','gif','jfif');
+
+        if
+        (
+            $_photoError === true                       ||
+            $_photoSize   >  $_photoMaxSize             ||
+            $_photoSize   <  1                          ||
+            !in_array($_photoExtension, $_photoFormats)
+        )
+        {
+            $datosErroneos[] = "Error al guardar la imagen, compruebe el formato y/o el tamaño. ❌";
+        }
+        else
+        {
+            store_image();
+        }
+
         if (!empty($datosErroneos)) 
         {
             echo '<div id="mensajes">';
@@ -209,13 +269,24 @@
                 flush();
                 sleep(2);
             }
+
             
             echo '</div>';
             
-            echo '<a href="./formulario_manuel.php"';
+            echo 
+            "
+                <script>
+                    setTimeout(function() 
+                    {
+                        alert('Vuelva a rellenar el formulario.');
+                        window.location.href = '/A2.2-Envio-recepcion-formularios/formulario_daniel.php';
+                    }, 2000);
+                </script>
+            ";
             
             exit;
         }
+
 
         else {
             echo 
@@ -242,8 +313,13 @@
             }
 
             echo '<b>Género:</b> ' . $_REQUEST['genero'];
+
+            echo '<br/> <b>Se han guardados los archivos.</b>';
         }
+
+
     }
+
 
     // Función que comprueba los datos enviados al controlador - MANUEL -.
     function validate_form_manuel()

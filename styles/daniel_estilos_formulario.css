@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    color: rgb(255, 255, 255);
+    background-color: black;
+}
+.container {
+    width: 50%;
+    margin: 2% auto;
+    padding: 2%;
+    background-color: rgb(0, 48, 110);
+}
+h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+h4 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+label {
+    width: 30%;
+    font-weight: bold;
+}
+input {
+    width: 70%;
+    float: right;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+.enviar {
+    width: 20%;
+    float: none;
+    margin: 0 auto;
+}

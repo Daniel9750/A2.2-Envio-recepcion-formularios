@@ -1,0 +1,5 @@
+name: Daniel Sánchez González,
+email: danielsanchezgonzalez@alumno.ieselricon.com,
+dni: 12345678A,
+portatil: portatil,
+genero: hombre,
