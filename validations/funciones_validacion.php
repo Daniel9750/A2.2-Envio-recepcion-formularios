@@ -1,6 +1,6 @@
 <?php
 
-    include_once "..\\controllers\\guardar_ficheros.php";
+    include_once "..\\controllers\\cristo_guardar_ficheros.php";
 
     // Función que comprueba los datos enviados al controlador.
     function validate_form_cristo()
