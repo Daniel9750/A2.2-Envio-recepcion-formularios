@@ -1,6 +1,6 @@
 <?php
 
-    function cristo_escribe_fichero()
+    function daniel_escribe_fichero()
     {
         $dataToStore = "name: " . $_REQUEST['name'] . ",\n";
         $dataToStore .= "email: " . $_REQUEST['email'] . ",\n";
