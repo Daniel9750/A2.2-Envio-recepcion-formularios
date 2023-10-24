@@ -2,6 +2,7 @@
 
     // Importa la función que almacena los archivos si se han validado correctamente.
     include_once "..\\controllers\\cristo_guardar_ficheros.php";
+    include_once "..\\controllers\\manuel_guardar_ficheros.php";
 
     /**
      *  - Función que se encarga de escribir los datos en el fichero.
