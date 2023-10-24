@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Título del documento -->
     <title>Formularios UT2</title>
+    <link rel="stylesheet" href="./styles/cristo_estilo_formulario.css">
 </head>
 <body>
     <!-- Contenedor del formulario -->
@@ -17,7 +18,7 @@
         <h1>Manuel Castillo Casañas</h1>
         <br/>
         <!-- Formulario de petición de datos -->
-        <form action="./recibe_datos.php" method="post">
+        <form action="./controllers/recibe_datos.php" method="post">
             <!-- Input de texto -->
             <div>
                 <label for="name">Nombre:</label>
