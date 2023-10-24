@@ -1,6 +1,6 @@
 <?php
     function manuel_lee_fichero(){
-        global $valDef;
+        global $valorDefecto;
 
         $file = "database\\manuel_valores_defecto.txt";
         
@@ -8,15 +8,15 @@
             $fichero = fopen($file, "r");
             
             if($fichero !== false){
-                $valDef = array();
+                $valorDefecto = array();
 
                 while ($linea = fgets($fichero)){
-                    $spl = explode(": ", $linea);
+                    $splitArray = explode(": ", $linea);
                     
-                    if(count($spl) >= 2){
-                        $clave = trim($spl[0]);
-                        $valor = trim($spl[1]);
-                        $valDef[$clave] = str_replace(",", "", $valor);
+                    if(count($splitArray) >= 2){
+                        $clave = trim($splitArray[0]);
+                        $valor = trim($splitArray[1]);
+                        $valorDefecto[$clave] = str_replace(",", "", $valor);
                     }else{
                         echo "La siguiente línea: '" . $linea . "' no cumple el formato correcto";
                     }
@@ -25,6 +25,7 @@
                 fclose($fichero);
             }else{
                 echo "No se puede abrir el archivo '" . $file . "'<br>";
+                fclose($fichero);
             }
         }else{
             echo "El archivo '" . $file . "' no existe en el directorio actual. <br/>";
