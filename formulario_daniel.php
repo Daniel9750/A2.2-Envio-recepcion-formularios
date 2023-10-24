@@ -1,8 +1,8 @@
 <?php
 
-    require_once "./controladores/daniel_lee_fichero.php";
+    require_once "./controllers/daniel_lee_fichero.php";
 
-    require_once "./validaciones/daniel_valida_fichero.php";
+    require_once "./validations/daniel_valida_fichero.php";
 
 ?>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
             <br/>
 
             <form 
-                action="./controladores/recibe_datos.php" 
+                action="./controllers/recibe_datos.php" 
                 method="post" 
                 enctype="multipart/form-data"
             >
@@ -132,8 +132,6 @@
                     <label for="fichero1">Suba un documento: </label>
                     <input type="file" name="fichero1" id="fichero1" accept=".txt,.pdf,.docx,.xlsx,.pptx,.odt"/>
                 </div>
-
-                
 
 
                 <input value="Daniel" type="hidden" name="postId" id="postId"/>

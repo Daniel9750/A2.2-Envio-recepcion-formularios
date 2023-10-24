@@ -2,7 +2,7 @@
 
     global $valores_defecto;
 
-    $ruta = "datos\\daniel_valores_defecto.txt";
+    $ruta = "database\\daniel_valores_defecto.txt";
     
     if (file_exists($ruta))
     {
