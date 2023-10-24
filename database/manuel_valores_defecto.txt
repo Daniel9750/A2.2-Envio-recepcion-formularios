@@ -1,0 +1,6 @@
+name: Manuel,
+password: 12345,
+repeatPassword: 12345,
+checkTransp: maritimo,
+radioBut: rotables,
+entregaSelect: destino

@@ -1,0 +1,81 @@
+/* Estilo para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+/* Estilo para el contenedor del formulario */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+/* Estilo para el título */
+h1 {
+    text-align: center;
+    color: #333;
+}
+/* Estilo para los campos de entrada de texto */
+input[type="text"],
+input[type="password"],
+select {
+    width: 96%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+/* Estilo para los checkbox y radio buttons */
+.checkbox,
+.radio {
+    font-weight: bold;
+}
+/* Estilo para los botones */
+.enviar {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Estilo para los botones al pasar el cursor */
+.enviar:hover {
+    background-color: #0056b3;
+}
+/* Estilo para los fieldsets */
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+/* Estilo para los legends */
+legend {
+    font-weight: bold;
+}
+/* Estilo para el párrafo "Entrega" */
+.entrega p {
+    font-weight: bold;
+}
+/* Estilo para el select "Entrega" */
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+/* Estilo para los elementos ocultos (hidden) */
+input[type="hidden"] {
+    display: none;
+}
+/* Estilo para los saltos de línea */
+br {
+    clear: both;
+}
