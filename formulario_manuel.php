@@ -87,18 +87,6 @@
             </div>
             <br/>
 
-            <!-- Input type file para documentos -->
-            <div>
-                <label for="fichero1">Selecciona un documento: </label>
-                <input
-                    id="fichero1" 
-                    type="file" 
-                    name="fichero1"
-                    accept=".txt,.pdf,.docx,.xlsx,.pptx,.odt,.jpg,.gif,.png,.jfif" 
-                />
-            </div>
-        <br/>
-
             <input type="hidden" id="postId" name="postId" value="Manuel" />
             <br/>
             <!-- Botón que envía el formulario a ser validado -->
