@@ -31,7 +31,6 @@
         {
             echo "El archivo '" . $pathFile . "' no existe en el directorio actual. <br/>";
         }
-        var_dump($valores_defecto);
     }
     
 ?>
