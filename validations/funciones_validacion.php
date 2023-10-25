@@ -374,7 +374,7 @@
             //escribir_fichero();
 
             echo 'El formulario está correcto ✅' . '<br/><br/> <b>Nombre:</b> ' . $_REQUEST['name'] . '<br/> <b>Contraseña1:</b> ' . $_REQUEST['password'] . '<br/> <b>Contraseña2:</b> ' . $_REQUEST['repeatPassword'] . '<br/>';
-    
+
             foreach ($_REQUEST['transp'] as $value) {
                 echo '<b>Tipo Transporte:</b> ' . $value . '<br/>';
             }
@@ -384,6 +384,8 @@
             }
     
             echo '<b>Lugar de Entrega:</b> ' . $_REQUEST['entrega'];
+
+            echo '<br/><br/><a href="../formulario_manuel.php">Volver al formulario</a>' . '<br/>';
         }
     }
 ?>

@@ -87,6 +87,19 @@
             </div>
             <br/>
 
+            <!-- Input para ficheros -->
+            <div>
+                <label for="fichero1">Selecciona un fichero: </label>
+                <input id="fichero1" type="file" name="fichero1" accept=".txt,.pdf,.docx,.xlsx,.pptx,.odt,.jpg,.gif,.png,.jfif"/>
+            </div>
+			<br/>
+
+            <div>
+                <label for="fichero2">Selecciona otro fichero: </label>
+                <input id="fichero2" type="file" name="fichero2" accept=".txt,.pdf,.docx,.xlsx,.pptx,.odt,.jpg,.gif,.png,.jfif"/>
+            </div>
+			<br/>
+
             <input type="hidden" id="postId" name="postId" value="Manuel" />
             <br/>
             <!-- Botón que envía el formulario a ser validado -->
