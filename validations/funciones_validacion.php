@@ -2,7 +2,6 @@
 
     // Importa la función que almacena los archivos si se han validado correctamente.
     include_once "..\\controllers\\cristo_guardar_ficheros.php";
-    include_once "..\\controllers\\manuel_guardar_ficheros.php";
     include_once "..\\controllers\\daniel_guardar_ficheros.php";
 
     /**
@@ -10,6 +9,7 @@
      *  - Recibe como parámetros los datos recibidos del formulario y el nombre del fichero.
      */
     require_once "..\\controllers\\cristo_escribe_fichero.php";
+    require_once "..\\controllers\\manuel_escribe_fichero.php";
     require_once "..\\controllers\\daniel_escribe_fichero.php";
 
     // Función que comprueba los datos enviados al controlador.
@@ -358,6 +358,10 @@
     
             foreach ($errors as $value) {
                 echo "$value <br/>";
+
+                ob_flush();
+                flush();
+                sleep(2);
             }
     
             echo '</div>';
@@ -366,6 +370,8 @@
     
             exit;
         } else {
+            escribir_fichero();
+
             echo 'El formulario está correcto ✅' . '<br/><br/> <b>Nombre:</b> ' . $_REQUEST['name'] . '<br/> <b>Contraseña1:</b> ' . $_REQUEST['password'] . '<br/> <b>Contraseña2:</b> ' . $_REQUEST['repeatPassword'] . '<br/>';
     
             foreach ($_REQUEST['transp'] as $value) {
