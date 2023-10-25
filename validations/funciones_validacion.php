@@ -354,23 +354,6 @@
             $errors[] = "Error en la elección de entrega ❌";
         }
 
-        if (!isset($_FILES['fichero']) || empty($_FILES['fichero'])){
-            $errors[] = "Debe incluir un documento como mínimo.";
-        }
-
-        $ficheroNombre = $_FILES['fichero']['name'];     
-        $ficheroError = $_FILES['fichero']['error'];    
-        $ficheroTam = $_FILES['fichero']['size'];    
-        $ficheroMaxTam = 1024 * 1024 * 1;
-        $ficheroExt = pathinfo($ficheroNombre, PATHINFO_EXTENSION);
-        $ficheroFormat = array('txt','pdf','docx','xlsx','pptx','odt');
-        
-        if($ficheroError === true || $ficheroTam > $ficheroMaxTam || $ficheroTam < 1 || !in_array($ficheroExt, $ficheroFormat)){
-            $datosErroneos[] = "No se ha podido guardar el documento, compruebe el formato y el tamaño.";
-        }else {
-            guardarFichero();
-        }
-
         if (!empty($errors)) {
             echo '<div id="mensajes">';
     
@@ -384,11 +367,11 @@
     
             echo '</div>';
     
-            echo '<br/><a href="./formulario_manuel.php">Rellena el formulario otra vez</a>';
+            echo '<br/><a href="../formulario_manuel.php">Rellena el formulario otra vez</a>';
     
             exit;
         } else {
-            escribir_fichero();
+            //escribir_fichero();
 
             echo 'El formulario está correcto ✅' . '<br/><br/> <b>Nombre:</b> ' . $_REQUEST['name'] . '<br/> <b>Contraseña1:</b> ' . $_REQUEST['password'] . '<br/> <b>Contraseña2:</b> ' . $_REQUEST['repeatPassword'] . '<br/>';
     
