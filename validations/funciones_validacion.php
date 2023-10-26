@@ -412,7 +412,7 @@
     
             exit;
         } else {
-            //escribir_fichero();
+            escribirFichero();
 
             echo 'El formulario está correcto ✅' . '<br/><br/> <b>Nombre:</b> ' . $_REQUEST['name'] . '<br/> <b>Contraseña1:</b> ' . $_REQUEST['password'] . '<br/> <b>Contraseña2:</b> ' . $_REQUEST['repeatPassword'] . '<br/>';
 
