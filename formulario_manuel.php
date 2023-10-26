@@ -18,7 +18,7 @@
         <h1>Manuel Castillo Casañas</h1>
         <br/>
         <!-- Formulario de petición de datos -->
-        <form action="./controllers/recibe_datos.php" method="post">
+        <form action="./controllers/recibe_datos.php" method="post" enctype="multipart/form-data">
             <!-- Input de texto -->
             <div>
                 <label for="name">Nombre:</label>
@@ -90,13 +90,13 @@
             <!-- Input para ficheros -->
             <div>
                 <label for="fichero1">Selecciona un fichero: </label>
-                <input id="fichero1" type="file" name="fichero1" accept=".txt,.pdf,.docx,.xlsx,.pptx,.odt,.jpg,.gif,.png,.jfif"/>
+                <input type="file" id="fichero1" name="fichero1" accept=".txt,.pdf,.docx,.xlsx,.pptx,.odt,.jpg,.gif,.png,.jfif"/>
             </div>
 			<br/>
 
             <div>
                 <label for="fichero2">Selecciona otro fichero: </label>
-                <input id="fichero2" type="file" name="fichero2" accept=".txt,.pdf,.docx,.xlsx,.pptx,.odt,.jpg,.gif,.png,.jfif"/>
+                <input type="file" id="fichero2" name="fichero2" accept=".txt,.pdf,.docx,.xlsx,.pptx,.odt,.jpg,.gif,.png,.jfif"/>
             </div>
 			<br/>
 

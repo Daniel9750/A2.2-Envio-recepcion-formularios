@@ -354,6 +354,47 @@
             $errors[] = "Error en la elección de entrega ❌";
         }
 
+
+
+        // Validación de los ficheros
+        //Fichero 1
+        if (!isset($_FILES['fichero1']) || empty($_FILES['fichero1'])) {
+            $errors[] = "Debe incluir un fichero.";
+        }else{
+            $_fileName2      = $_FILES['fichero1']['name'];     
+            $_fileError2     = $_FILES['fichero1']['error'];    
+            $_fileSize2      = $_FILES['fichero1']['size'];    
+            $_fileMaxSize2   = 1024 * 1024 * 1;
+            $_fileExtension2 = pathinfo($_fileName2, PATHINFO_EXTENSION);
+            $_fileFormats2   = array('txt','pdf','docx','xlsx','pptx','odt','jpg','png','gif','jfif');
+            
+            if ($_fileError2 === true || $_fileSize2 > $_fileMaxSize2 || $_fileSize2 < 1 || !in_array($_fileExtension2, $_fileFormats2)){
+                $errors[] = "No se ha podido guardar el documento, compruebe el formato y el tamaño.";
+            }else{
+                guardarFichero1();
+            }
+        }
+
+        //Fichero 2
+        if (!isset($_FILES['fichero2']) || empty($_FILES['fichero2'])) {
+            $errors[] = "Debe incluir un fichero.";
+        }else{
+            $_fileName3      = $_FILES['fichero2']['name'];     
+            $_fileError3     = $_FILES['fichero2']['error'];    
+            $_fileSize3      = $_FILES['fichero2']['size'];    
+            $_fileMaxSize1   = 1024 * 1024 * 1;
+            $_fileExtension3 = pathinfo($_fileName3, PATHINFO_EXTENSION);
+            $_fileFormats3   = array('txt','pdf','docx','xlsx','pptx','odt','jpg','png','gif','jfif');
+            
+            if ($_fileError3 === true || $_fileSize3 > $_fileMaxSize1 || $_fileSize3 < 1 || !in_array($_fileExtension3, $_fileFormats3)){
+                $errors[] = "No se ha podido guardar el documento, compruebe el formato y el tamaño.";
+            }else{
+                guardarFichero2();
+            }
+        }
+
+
+
         if (!empty($errors)) {
             echo '<div id="mensajes">';
     
