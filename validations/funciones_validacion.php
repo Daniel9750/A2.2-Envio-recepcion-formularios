@@ -3,7 +3,7 @@
     // Importa la función que almacena los archivos si se han validado correctamente.
     include_once "..\\controllers\\cristo_guardar_ficheros.php";
     include_once "..\\controllers\\manuel_guardar_ficheros.php";
-    include_once "..\\controllers\\daniel_guardar_ficheros.php";
+    include_once "..\\controllers\\daniel_guardar_fichero.php";
 
     /**
      *  - Función que se encarga de escribir los datos en el fichero.
@@ -229,7 +229,7 @@
         }
         else 
         {
-            store_file();
+            store_files();
         }
 
         if 
@@ -259,7 +259,7 @@
         }
         else
         {
-            store_image();
+            store_images();
         }
 
         if (!empty($datosErroneos)) 

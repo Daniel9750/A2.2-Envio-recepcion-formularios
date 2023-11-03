@@ -127,7 +127,7 @@
                 </div>
 
                 <br/>
-
+                
                 <div>
                     <label for="fichero1">Suba un documento: </label>
                     <input type="file" name="fichero1" id="fichero1" accept=".txt,.pdf,.docx,.xlsx,.pptx,.odt"/>

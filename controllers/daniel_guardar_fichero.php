@@ -1,6 +1,6 @@
 <?php
 
-    function store_file()
+    function store_files()
     {
         $target_dir = "..\\ficheros\\";                                     
         $target_file = $target_dir . basename($_FILES["fichero1"]["name"]); 
@@ -32,7 +32,7 @@
         move_uploaded_file($_FILES["fichero1"]["tmp_name"], $target_file);  
     }
 
-    function store_image()
+    function store_images()
     {
         $target_dir = "..\\ficheros\\";                                     
         $target_file = $target_dir . basename($_FILES["foto"]["name"]);     
