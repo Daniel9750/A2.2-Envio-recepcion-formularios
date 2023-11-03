@@ -6,7 +6,7 @@
         $dataToStore .= "email: " . $_REQUEST['email'] . ",\n";
         $dataToStore .= "dni: " . $_REQUEST['dni'] . ",\n";
         
-        $portatil = in_array('Full-Stack Engineer', $_REQUEST['device']) ? 'portatil' : 'Otro';
+        $portatil = in_array('portatil', $_REQUEST['device']) ? 'portatil' : 'Otro';
         $dataToStore .= "portatil: $portatil,\n";
 
         $genero = ($_REQUEST['genero'] === 'otro') ? 'otro' : 'Otro';

@@ -77,8 +77,9 @@
         $_photoName      = $_FILES['foto']['name'];     
         $_photoError     = $_FILES['foto']['error'];    
         $_photoSize      = $_FILES['foto']['size'];    
-        $_photoMaxSize   = 1024 * 1024 * 1;
         $_photoExtension = pathinfo($_photoName, PATHINFO_EXTENSION);
+
+        $_photoMaxSize   = 1024 * 1024 * 1;
         $_photoFormats   = array('jpg','png','gif','jfif');
 
         if
